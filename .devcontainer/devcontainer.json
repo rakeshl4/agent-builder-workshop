@@ -2,6 +2,11 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/python
 {
   "name": "AI Agent Development Environment",
+  "hostRequirements": {
+    "cpus": 4,
+    "memory": "16gb",
+    "storage": "32gb"
+  },
   "features": {
     "ghcr.io/devcontainers/features/azure-cli:1": {
       "extensions": "ml"
@@ -20,7 +25,8 @@
         "ms-python.black-formatter",
         "mathematic.vscode-pdf",
         "ms-dotnettools.csdevkit",
-        "ms-dotnettools.dotnet-interactive-vscode"
+        "ms-dotnettools.dotnet-interactive-vscode",
+        "humao.rest-client"
       ]
     }
   },

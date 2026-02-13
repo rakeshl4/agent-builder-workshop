@@ -1,4 +1,4 @@
-# Contoso Bike Store
+# Contoso Travel Agency
 
 - Framework: Next.js (App Router) + TypeScript
 - Integration: CopilotKit Runtime → AG-UI agent (backend)

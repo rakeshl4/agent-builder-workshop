@@ -14,8 +14,8 @@ const serviceAdapter = new ExperimentalEmptyAdapter();
 // AG-UI integration to setup the connection.
 const runtime = new CopilotRuntime({
   agents: {
-    // Our Contoso Bike Store Agent endpoint
-    ContosoBikeStoreAgent: new HttpAgent({ 
+    // Our Contoso Travel Agent endpoint
+    ContosoTravelAgent: new HttpAgent({ 
       url: `${process.env.BACKEND_AGENT_BASE_URL}/agent/contoso_assistant` || "http://localhost:5001/agent/contoso_assistant" 
     }),
   },

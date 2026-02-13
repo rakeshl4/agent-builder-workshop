@@ -64,7 +64,6 @@ build/
 
 # dotenv environment variables files
 .env
-.env.*
 .env.local
 
 # next.js build output
