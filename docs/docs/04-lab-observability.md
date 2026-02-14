@@ -95,7 +95,11 @@ Update the `CreateAsync` method to enable OpenTelemetry tracing:
             }
         });
 
-        agent.AsBuilder().UseOpenTelemetry(Constants.ApplicationId).Build();
+        agent.AsBuilder().UseOpenTelemetry(Constants.ApplicationId, options =>
+        {
+            // Enable sensitive data logging for tool calls and responses
+            options.EnableSensitiveData = true;
+        }).UseLogging(_loggerFactory).Build();
         return agent;
     }
 
