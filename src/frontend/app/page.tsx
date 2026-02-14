@@ -6,7 +6,7 @@ import {
   CopilotKit,
   useCopilotReadable,
   useHumanInTheLoop,
-  useCopilotAction,
+  useRenderToolCall,
 } from "@copilotkit/react-core";
 import { CopilotChat } from "@copilotkit/react-ui";
 
@@ -17,7 +17,7 @@ export default function Page() {
     <CopilotKit
       key={chatKey}
       runtimeUrl="/api/copilotkit"
-      showDevConsole={false}
+      showDevConsole={true}
       agent="contoso_agent"
     >
       <Chat chatKey={chatKey} setChatKey={setChatKey} />
@@ -146,7 +146,6 @@ const ApprovalUI = ({
 };
 
 const Chat = ({
-  chatKey,
   setChatKey,
 }: {
   chatKey: number;
@@ -161,13 +160,46 @@ const Chat = ({
   });
 
   /**
+   * Render all tool execution states in real-time
+   * This shows when any tool is being called and displays their arguments
+   * The "*" catches all tool calls from the backend
+   */
+  useRenderToolCall({
+    name: "*", // Catch all tool calls
+    render: ({ args, status }) => {
+      console.log("[Tool Render] Status:", status, "Args:", args);
+      
+      // Only render during tool execution
+      if (status === "inProgress") {
+        return (
+          <div className="p-4 mb-4 bg-blue-50 border border-blue-200 rounded-lg">
+            <div className="flex items-center gap-2">
+              <div className="animate-spin h-4 w-4 border-2 border-blue-600 border-t-transparent rounded-full"></div>
+              <span className="text-sm font-medium text-blue-900">
+                Executing tool...
+              </span>
+            </div>
+            {args && Object.keys(args).length > 0 && (
+              <pre className="mt-2 text-xs text-blue-700 overflow-auto max-h-32">
+                {JSON.stringify(args, null, 2)}
+              </pre>
+            )}
+          </div>
+        );
+      }
+      // Must return a ReactElement, not null
+      return <></>;
+    },
+  });
+
+  /**
    *  Human-in-the-loop approval tool
    * Based on: https://docs.copilotkit.ai/reference/hooks/useHumanInTheLoop
    */
   useHumanInTheLoop({
     name: "request_approval",
     description:
-      "Request customer approval before processing payment and submitting order",
+      "Request approval from the user before executing a tool.",
     parameters: [
       {
         name: "request",
