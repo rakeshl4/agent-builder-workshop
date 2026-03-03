@@ -35,11 +35,11 @@ if (chatClient == null || embeddingGenerator == null) return;
 // Step 3: Load visa policy documents into vector store
 var workspaceRoot = Directory.GetCurrentDirectory();
 var japanVisaPolicyPath = Path.Combine(workspaceRoot, "data", "visa-policy-japan.md");
-var schengenVisaPolicyPath = Path.Combine(workspaceRoot, "data", "visa-policy-schengen.md");
+var canadaVisaPolicyPath = Path.Combine(workspaceRoot, "data", "visa-policy-canada.md");
 
 TextSearchStore textSearchStore = new(embeddingGenerator);
 await UploadDocumentationFromFileAsync(japanVisaPolicyPath, "Japan Visa Policy", textSearchStore, 2000, 200);
-await UploadDocumentationFromFileAsync(schengenVisaPolicyPath, "Schengen Area Visa Policy", textSearchStore, 2000, 200);
+await UploadDocumentationFromFileAsync(canadaVisaPolicyPath, "Canada Visa Policy", textSearchStore, 2000, 200);
 
 // Step 4: Create search adapter for TextSearchProvider
 Func<string, CancellationToken, Task<IEnumerable<TextSearchProvider.TextSearchResult>>> SearchAdapter = async (text, ct) =>
