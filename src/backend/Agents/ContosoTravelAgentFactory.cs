@@ -4,7 +4,6 @@ using Microsoft.Extensions.AI;
 using Microsoft.Azure.Cosmos;
 using OpenAI.Embeddings;
 using System.Text.Json;
-using ContosoTravelAgent.Host.Services;
 
 namespace ContosoTravelAgent.Host.Agents;
 
@@ -103,7 +102,7 @@ public class ContosoTravelAgentFactory
 
     public async Task<AIAgent> CreateAsync()
     {
-        var agent = _chatClient.CreateAIAgent(new ChatClientAgentOptions
+        var agent = _chatClient.AsAIAgent(new ChatClientAgentOptions
         {
             Name = Constants.AgentName,
             ChatOptions = new()

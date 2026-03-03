@@ -182,6 +182,7 @@ output AZURE_AI_SERVICES_KEY string = aiFoundryAccount.outputs.apiKey
 
 output AZURE_OPENAI_DEPLOYMENT_NAME string = chatCompletionModel
 output AZURE_TEXT_MODEL_NAME string = chatCompletionModel //TODO: to be removed when the notebook is updated
+output AZURE_EMBEDDING_MODEL_NAME string = embeddingModelName
 
 output COSMOS_DB_ENDPOINT string = cosmosDb.outputs.cosmosDbEndpoint
 output COSMOS_DB_CONNECTION_STRING string = cosmosDb.outputs.cosmosDbConnectionString
