@@ -82,9 +82,14 @@ Console.WriteLine("Agent created successfully\n");
 // Step 7: Run conversation
 AgentSession session = await agent.CreateSessionAsync();
 
-Console.WriteLine("User: Do I need a visa to visit Japan if I'm a US citizen?\n");
-var response1 = await agent.RunAsync("Do I need a visa to visit Japan if I'm a US citizen?", session);
+Console.WriteLine("User: Do I need a visa to visit Japan if I'm a Australian citizen?\n");
+var response1 = await agent.RunAsync("Do I need a visa to visit Japan if I'm a Australian citizen?", session);
 Console.WriteLine($"Agent: {response1.Text}\n");
+Console.WriteLine(new string('-', 60) + "\n");
+
+Console.WriteLine("User: What about Canada?\n");
+var response2 = await agent.RunAsync("What about Canada?", session);
+Console.WriteLine($"Agent: {response2.Text}\n");
 Console.WriteLine(new string('-', 60) + "\n");
 
 // ==================== Helper Methods ====================
