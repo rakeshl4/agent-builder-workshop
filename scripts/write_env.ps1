@@ -13,6 +13,7 @@ $azureResourceGroup = azd env get-value AZURE_RESOURCE_GROUP
 $azureSubscriptionId = azd env get-value AZURE_SUBSCRIPTION_ID
 $azureTenantId = azd env get-value AZURE_TENANT_ID
 $openAIDeploymentName = azd env get-value AZURE_OPENAI_DEPLOYMENT_NAME
+$embeddingModelName = azd env get-value AZURE_EMBEDDING_MODEL_NAME
 $cosmosDbEndpoint = azd env get-value COSMOS_DB_ENDPOINT
 $cosmosDbConnectionString = azd env get-value COSMOS_DB_CONNECTION_STRING
 $cosmosDbDatabaseName = azd env get-value COSMOS_DB_DATABASE_NAME
@@ -28,6 +29,7 @@ Add-Content -Path $envFilePath -Value "AZURE_RESOURCE_GROUP=$azureResourceGroup"
 Add-Content -Path $envFilePath -Value "AZURE_SUBSCRIPTION_ID=$azureSubscriptionId"
 Add-Content -Path $envFilePath -Value "AZURE_TENANT_ID=$azureTenantId"
 Add-Content -Path $envFilePath -Value "AZURE_TEXT_MODEL_NAME=$openAIDeploymentName"
+Add-Content -Path $envFilePath -Value "AZURE_EMBEDDING_MODEL_NAME=$embeddingModelName"
 Add-Content -Path $envFilePath -Value "COSMOS_DB_ENDPOINT=$cosmosDbEndpoint"
 Add-Content -Path $envFilePath -Value "COSMOS_DB_CONNECTION_STRING=$cosmosDbConnectionString"
 Add-Content -Path $envFilePath -Value "COSMOS_DB_DATABASE_NAME=$cosmosDbDatabaseName"
@@ -35,5 +37,5 @@ Add-Content -Path $envFilePath -Value "COSMOS_DB_CHAT_HISTORY_CONTAINER=$cosmosD
 Add-Content -Path $envFilePath -Value "AZURE_AI_SERVICES_ENDPOINT=$azureAIServicesEndpoint"
 Add-Content -Path $envFilePath -Value "AZURE_AI_SERVICES_KEY=$azureAIServicesKey"
 
-# Write-Host "🌐 Please visit web app URL:"
+# Write-Host "[INFO] Please visit web app URL:"
 # Write-Host $serviceAPIUri -ForegroundColor Cyan
