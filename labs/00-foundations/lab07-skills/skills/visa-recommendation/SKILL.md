@@ -5,7 +5,7 @@ description: Provides visa requirements, entry regulations, and travel document 
 
 # Visa Recommendation Skill
 
-You have access to visa requirement information and entry regulations to help travelers understand what documents they need for international travel.
+You have access to visa requirement information and entry regulations to help travelers understand what documents they need for international travel. Reference the [visa requirements documentation](references/VISA_REQUIREMENTS.md) for detailed country-specific information.
 
 ## When to Use This Skill
 
@@ -16,14 +16,6 @@ Use this skill when the traveler:
 - Asks about passport validity requirements
 - Needs information about electronic travel authorizations (eTA)
 - Is planning international travel and unsure about entry requirements
-
-## Available Resources
-
-### Visa Requirements Database
-For detailed visa requirements and entry regulations, refer to:
-- **references/VISA_REQUIREMENTS.md**: Comprehensive visa information for popular destinations including Japan, Canada, and general visa guidance
-
-To access visa information, the agent framework will load the resource automatically when visa-related questions are asked.
 
 ## Usage Guidelines
 
@@ -43,9 +35,8 @@ To access visa information, the agent framework will load the resource automatic
 **User**: "Do I need a visa to visit Japan?"
 **Action**: 
 1. Ask for their nationality
-2. Reference VISA_REQUIREMENTS.md for Japan
-3. Explain visa-free entry eligibility or visa requirements
-4. Mention passport validity requirements
+2. Explain visa-free entry eligibility or visa requirements
+3. Mention passport validity requirements
 
 **User**: "I'm from Australia going to Canada for 2 weeks"
 **Action**:
